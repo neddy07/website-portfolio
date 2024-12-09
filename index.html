@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinead Alriz Jalacdon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            background-color: #E8ECD7;
+            color: #1F4529;
+            height: 100vh;
+            overflow: scroll;
+        }
+        body::before {
+            content: "";
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('pics/My\ Neighbour\ Totoro!.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        nav {
+            background-color: #1F4529;
+            padding: 0.09rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        nav .logo {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+        nav h3 {
+            font-size: 1.5rem;
+            margin-left: 20px;
+            color:#E8ECD7;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+        }
+        nav ul a {
+            color: #E8ECD7;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul a:hover {
+            background-color: #47663B; 
+        }
+
+        body {
+            padding-top: 80px;
+        }
+
+        .home {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .home img {
+            margin-top: 5px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1F4529;
+        }
+        .social-links a {
+            margin: 0 15px;
+        }
+        .social-links .social-icon {
+            width: 50px;
+            height: auto;
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 0%;
+        }
+        .social-links .social-icon:hover {
+            transform: scale(1.1); 
+            opacity: 0.8;
+        }
+        .home h1 {
+            margin-top: 10px;
+            font-size: 1.8rem;
+        }
+        .home .about-me {
+             background-color:rgba(31, 69, 41, 0.8);
+             padding: 20px;
+             margin-top: 30px;
+             border-radius: 8px;
+             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+             text-align: left;
+             max-width: 800px;
+             margin-left: auto;
+             margin-right: auto;
+         }
+
+        .home .about-me h3 {
+             font-size: 1.5rem;
+             margin-bottom: 15px;
+             color: #E8ECD7;
+         }
+
+        .home .about-me p {
+             font-size: 1rem;
+             color: #E8ECD7;
+             line-height: 1.8;
+        }
+        .social-links a {
+            margin: 0 15px;
+            font-size: 20px;
+            text-decoration: none;
+            color:#1F4529;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color:#47663B;
+        }
+        .home .social-links {
+            margin-top: 20px;
+        }
+        .home .social-links i {
+            transition: color 0.35s;
+        }
+        .home button {
+            background-color: #E8ECD7;
+            color: #1F4529;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .home button:hover {
+            background-color: #EED3B1;
+        }
+
+        .blog, .flex{
+            padding: 60px 20px;
+            display: flex;
+            gap: 30px;
+            margin-top: 100px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .blog .intro, .flex .intro {
+            background-color: rgba(31, 69, 41, 0.8);
+            color: #E8ECD7;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            flex-basis: 100%;
+        }
+        .blog .intro h2, .flex .intro h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .blog .intro p, .flex .intro p {
+            front-size: 1rem;
+            line-height: 1.6;
+        }
+
+        
+      
+        @media (max-width: 768px) {
+         .blog .entry {
+        flex: 1 1 calc(50% - 20px); /* 2 entries per row on smaller screens */
+         }
+        }
+
+        @media (max-width: 480px) {
+         .blog .entry {
+        flex: 1 1 100%; /* Full-width entries on very small screens */
+         }
+        }
+        section {
+            margin-top: 60px;
+        }
+
+        .blog .entry {
+            flex: 1 1 calc(25% - 15px); 
+            box-sizing: border-box; 
+            background-color: #E8ECD7;
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+        }
+
+        .blog .entry img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .blog .blog-gif {
+            width: 100%; 
+            max-width: 300px; 
+            height: auto;  
+            border: 2px solid #1F4529; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+        .blog .entry h2,
+        .blog .entry h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            text-align: center;
+            color:#1F4529;
+        }
+        .blog .entry p {
+            font-size: 0.9rem;
+            text-align: justify;
+            color:#1F4529;
+            margin: 10px 0;
+        }
+
+
+        .blog .entry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .flex .entry img, 
+        .flex .entry video {
+            margin: 10px;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+       
+        .art-gallery {
+             display: grid;
+             flex-wrap: wrap;
+             grid-template-columns: repeat(4, 1fr);
+             justify-items: center;
+             gap: 30px; 
+        }
+
+        .art-gallery img {
+            width: 300px;
+            height: 300px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .art-gallery img:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+       
+        .animation-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .animation-gallery .flex-gif {
+            width: 320px;
+            height: auto;
+            border: 2px solid #1F4529;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .achievement-section {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;  
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        .achievement-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .achievement-item {
+            width:calc(33.33% - 20px);
+            text-align: center;
+            border: 1px solid #D1E2D4;
+            padding: 8px;
+            border-radius: 8px;
+            background-color: #E8ECD7;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .achievement-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        .achievement-item img {
+            width: 90%;
+            height: 50%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .achievement-item .description {
+            margin-top:10px;
+            font-size: 1.5rem;
+            color:#1F4529;
+            font-weight: bold;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+        .achievement-item {
+            width: 100%;  
+            height: auto;
+            }
+        }
+        .video {
+            padding: 75px 40px;
+            background-color: rgba(31, 69, 41, 0.8);
+            color: #E8ECD7;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background-color: #1F4529;
+            color: #E8ECD7;
+            text-align: center;
+            padding: 0.3rem;
+            
+            bottom: 0;
+            width: 100%;
+            z-index: 100%;
+        }
+
+
+    </style>
+</head>
+<body> 
+    <nav>
+        <img src="pics/cat logo.png" class="logo" alt="Logo">
+        <h3>Sinead Alriz's Portfolio</h3>
+        <ul>
+        <a href="#home">Home</a>
+        <a href="#blog">Blog</a>
+        <a href="#flex">Flex Page</a>
+        </ul>
+    </nav>
+
+    <section id="home" class="home">
+        <img src="pics/addyline.jpg" alt="Sinead's Profile Picture">
+        <h1>Hey, It's Neddy!</h1>
+        <div class="social-links">
+            <a href="https://www.instagram.com/addylaruedy/profilecard/?igsh=anl5MGlzb3A5a2U5" target="_blank">
+               <img src="pics/ig icon cat (2).png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.facebook.com/share/1AWcDPJo3E/?mibextid=LQQJ4d" target="_blank">
+               <img src="pics/fb icon cat.png" alt="Facebook" class="social-icon">
+            </a>
+        </div>
+        <button onclick="document.getElementById('video-section').scrollIntoView({behavior: 'smooth'});">Video About Me 8 Years from Now</button>
+    
+        <div class="about-me">
+            <h3>About Me</h3>
+            <p>
+            Hi! I'm Sinead Alriz Jalacdon, you can call me Neddy! I am a 19-year-old BS Entertainment Multimedia and Computing major in Digital Animation Technology Student at Bukidnon State University. 
+            </p>
+            <p>
+            I enjoy writing literary stories and watching movies in my free time. In addition, I create digital art and am open to commissions. I’m passionate about learning new things and constantly pushing the boundaries of my creativity. Feel free to follow my socials to learn more about me and stay updated on my work! :>
+            </p>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+
+
+    <section id="blog" class="blog">
+        <div class="intro">
+            <h2>Welcome to My Blog</h2>
+            <p>Here you will find my thoughts and written experience about our major subject Intro to Computing's Lessons and IT Fundamental's. One Topic per Entry. Feel free to read through my entries!</p>
+        </div>
+        <div class="entry">
+            <h2> Blog Entry 1 </h2>
+            <h4> Technology Timeline to Computing's Impact on Industries </h4>
+            <p>This was a group activity where we were tasked to create an infographic about the Integrated Circuit Era, a pivotal period in computing history. The era marked the advent of integrated circuits, which revolutionized technology by miniaturizing and integrating multiple electronic components onto a single chip. This breakthrough led to faster, smaller, and more reliable devices, laying the foundation for modern computing. Collaborating on this project was an engaging experience, allowing us to explore and visually represent the profound impact of this innovation.</p>
+            <img src="pics/Group 4_Jalacdon (1).jpg" alt="Blog Entry 1 Image">
+        </div>
+        <div class="entry">
+            <h2>Blog Entry 2</h2>
+            <h4> Basic Concept of Computer Security</h4>
+            <p>Computer security was one of the major topics in our Introduction to Computing course, where we delved into various aspects of protecting digital systems, including cybercrime cases. For this group activity, we were assigned to research and write about a specific malicious software case. This task deepened our understanding of how cyber threats operate and the importance of robust security measures to counteract them. </p>
+            <img src="pics/blog 2.png" alt="Blog Entry 2 Image">
+        </div>
+        <div class="entry">
+            <h2>Blog Entry 3</h2>
+            <h4> HTML and CSS </h4>
+            <p>This was when we first explored and learned about HTML and CSS, with a focus on the basics of HTML. We began with the foundational elements, such as creating headings, paragraphs, lists, and links, which are essential for structuring a webpage. I thoroughly enjoyed diving into these fundamentals and discovering how they come together to build a functional webpage. This activity marked my very first experience with HTML coding, and I’m excited to share both my code and the final outcome with you.</p>
+            <img src="pics/blog 3.png" alt="Blog Entry 3 Image">
+        </div>
+        <div class="entry">
+            <h2>Blog Entry 4</h2>
+            <h4>Wireframe Creation</h4>
+            <p> As part of our HTML and CSS lessons, we were tasked with creating a wireframe for our Website Portfolio. Looking back, my initial wireframe and the final website turned out quite different. I decided to deviate from my original plan because building a website proved to be more challenging and complex than I had anticipated, even with a solid grasp of the basics. After some trial and error, I opted for a simpler yet charming design for my portfolio, which I feel suits it perfectly. Overall, I’m happy with how it turned out. Here’s a glimpse of my wireframe!</p>
+            <img src="pics/blog 4.png" alt="Blog Entry 4 Image">
+        </div>
+        <div class="entry">
+            <h2>Blog Entry 5</h2>
+            <h4>The Internet and World Wide Web</h4>
+            <p> This was our final lesson for the term, focusing on the Internet and the World Wide Web. For this assignment, we were tasked with conducting a cross-analysis of three emerging trends: Cloud Computing, Artificial Intelligence, and the Internet of Things. As a group, we explored the similarities and differences between these technologies and examined their impact on various industries. We also wrote a reflection and conclusion based on our findings. The activity was both informative and enjoyable, and we were able to complete and submit it on time while gaining a deeper understanding of these transformative technologies.</p>
+            <img src="pics/blog 5.png" alt="Blog Entry 5 Image">
+        </div>
+        <div class="entry">
+            <h2>Blog Entry 6</h2>
+            <h4> Bouncing ball and Walking Stick Man Animation</h4>
+            <p> We were informed that there would be a collaboration between our Intro to Computing and IT Fundamentals courses, where we would also incorporate what we learned into animation and showcase our works. I must say, I had a lot of fun creating these animations, but I also realized that animating is much harder and more complex than I initially thought. It requires careful attention to detail, ensuring you don't get lost in the frames and maintaining consistency in your drawings for a smooth result. Despite the challenges, we all had a great time working on it. Here are my final output. </p>
+            <img src="pics/BouncingBall_Animation_Jalacdon.gif" alt="First GIF for Blog Entry 6" class="blog-gif">
+            <img src="pics/walking_stickman_animation_jalacdon.gif" alt="Second GIF for Blog Entry 6" class="blog-gif">
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+    <section id="flex" class="flex">
+        
+        <div class="intro">
+            <h2>Welcome to my Flex Page</h2>
+            <p>Explore my digital arts, animations, and life experiences.</p>
+        </div>
+
+        
+        <div class="entry">
+            <h2>Achievements and Experiences</h2>
+            <p>Snapshots of my journey and accomplishments.</p>
+           
+            <div class="achievement-gallery">
+                <div class="achievement-item">
+                    <img src="pics/grad.jpg" alt="Achievement 1">
+                    <p class="description">Finished my High School Journey with High Honors.</p>
+                </div>
+                <div class="achievement-item">
+                    <img src="pics/research.jpg" alt="Achievement 2">
+                    <p class="description">Awarded as the Best Researcher.</p>
+                </div>
+                <div class="achievement-item">
+                    <img src="pics/2nd runner.jpg" alt="Achievement 3">
+                    <p class="description">Placed Second in Essay Writing Cluster Level</p>
+                </div>
+                <div class="achievement-item">
+                    <img src="pics/cms.jpg" alt="Achievement 4">
+                    <p class="description">I met Amazing People this Year.</p>
+                </div>
+                <div class="achievement-item">
+                    <img src="pics/bff.jpg" alt="Achievement 5">
+                    <p class="description">I have a beautiful 5 years of friendship with these people, and counting. </p>
+                </div>
+                <div class="achievement-item">
+                    <img src="pics/org.jpg" alt="Achievement 6">
+                    <p class="description">Joined a Wonderful Organization and met wonderful people in it.</p>
+                </div>      
+            </div>
+        </div>
+
+        <div class="entry">
+            <h2>Digital Artworks</h2>
+            <p>Here are some of my digital artworks. I love experimenting with colors and designs!</p>
+            <div class="art-gallery">
+                <img src="pics/art1.jpg" alt="Digital Art 1">
+                <img src="pics/art2.jpg" alt="Digital Art 2">
+                <img src="pics/art3.jpg" alt="Digital Art 3">
+                <img src="pics/art4.jpg" alt="Digital Art 4">
+                <img src="pics/art5.jpg" alt="Digital Art 5">
+                <img src="pics/art6.jpg" alt="Digital Art 6">
+                <img src="pics/art7.jpg" alt="Digital Art 7">
+                <img src="pics/art8.jpg" alt="Digital Art 8">
+         </div>
+        </div>
+
+        <div class="entry">
+            <h2>Animation Works</h2>
+            <p>I just Learned Animation this School Year! Here are two of my works.</p>
+            <div class="animation-gallery">
+                <img src="pics/ani1.gif" alt="Gif for Animation" class="flex-gif">
+                <img src="pics/ani1.gif" alt="Gif for Animation 2" class="flex-gif">
+            </div>
+        </div>
+    </section>
+
+    <section id="video-section" class="video">
+        <h2>Video About Me 10 Years from Now</h2>
+        <video width="600" controls>
+            <source src="pics/pleaseplay.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+   
+
+</body>
+<footer>
+    <p>&copy; 2024 Sinead Alriz Jalacdon. All rights reserved.</p>
+</footer>
+</html>
